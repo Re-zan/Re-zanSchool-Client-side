@@ -35,22 +35,22 @@ const Footer = () => {
     </>
   );
   return (
-    <div className="bg-gray-700 mt-24">
-      <footer className="footer px-5 lg:px-0 py-20  my_container">
+    <div className="bg-gray-700 ">
+      <footer className="footer px-5 lg:px-0  py-28  my_container">
         <div>
           <Link to="/">
             {" "}
             <div className="flex items-center">
               <Link
                 to="/"
-                className="text-2xl md:text-4xl  font-bold text-design "
+                className="text-2xl md:text-4xl  mt-4 font-bold text-design "
               >
                 {" "}
                 Re-ZanSchool
               </Link>
             </div>
           </Link>
-          <p className=" w-[200px] lg:w-[400px] my-8 text-sm text-white ">
+          <p className=" w-[200px] lg:w-[400px] my-6 text-sm text-white ">
             {`Step into the world of Re-zanSchool, where art and craft intertwine
             to create a tapestry of inspiration. Immerse yourself in our virtual
             sanctuary, where you'll discover a treasure trove of tutorials,
