@@ -1,0 +1,8 @@
+.swiper-button-prev {
+  font-size: 12rem;
+  @apply btn bg-gradient-to-r from-[#c0392b] to-[#8e44ad]
+    text-white;
+}
+.swiper-button-next {
+  @apply btn  bg-gradient-to-r from-[#c0392b] to-[#8e44ad] text-white;
+}
