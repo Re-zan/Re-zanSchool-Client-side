@@ -1,6 +1,7 @@
 import { Rating } from "@smastrom/react-rating";
 import "./Review.css";
 import "@smastrom/react-rating/style.css";
+import { Fade } from "react-awesome-reveal";
 const ReviewDatas = ({ reviewData }) => {
   const { parent_name, rating, comment, img_url } = reviewData;
   return (
@@ -19,6 +20,9 @@ const ReviewDatas = ({ reviewData }) => {
             value={rating}
           />
           <p className=" font-bold text-xl font[grand] mx-6 mt-2">{rating}</p>
+          <Fade>
+            <p>I am an animated text</p>
+          </Fade>
         </div>
       </div>
     </div>
