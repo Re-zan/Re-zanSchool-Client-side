@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: "Montserrat", sans-serif;
+}
+.text-design {
+  @apply text-transparent  bg-clip-text bg-gradient-to-r from-[#c0392b] to-[#8e44ad];
+}
+
+.bg_gradient_design {
+  @apply bg-gradient-to-r from-[#c0392b] to-[#8e44ad];
+}
 .my_container {
   @apply mx-auto sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-xl;
 }

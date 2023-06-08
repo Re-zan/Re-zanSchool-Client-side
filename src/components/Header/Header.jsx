@@ -30,7 +30,7 @@ const Header = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 my_container my-4">
+    <div className="navbar bg-base-100 py-6  my_container">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -51,25 +51,26 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-20"
           >
             {mainMenu}
           </ul>
         </div>
-        <Link
-          to="/"
-          className="text-4xl text-transparent  font-bold bg-clip-text bg-gradient-to-r from-[#c0392b] to-[#8e44ad]"
-        >
+        <Link to="/" className="text-2xl md:text-4xl  font-bold text-design ">
           {" "}
           Re-ZanSchool
         </Link>
       </div>
 
-      <div className="navbar-end hidden lg:flex items-center">
-        <ul className="menu menu-horizontal px-1 ">{mainMenu}</ul>
-        <a className="btn bg-gradient-to-r from-[#c0392b] to-[#8e44ad] text-white">
+      <div className="navbar-end  flex items-center">
+        <div className="hidden lg:flex">
+          {" "}
+          <ul className="menu menu-horizontal px-1 ">{mainMenu}</ul>
+        </div>
+
+        <Link to="/login" className="btn bg_gradient_design text-white">
           Login
-        </a>
+        </Link>
       </div>
     </div>
   );
