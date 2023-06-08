@@ -25,7 +25,7 @@ const Header = () => {
           isActive ? "text-[#c0392b]" : "text-black"
         }
       >
-        <li className=" mx-3 text-2xl font-semibold">Our Classes</li>
+        <li className=" mx-3 text-2xl font-semibold"> Classes</li>
       </NavLink>
     </>
   );
