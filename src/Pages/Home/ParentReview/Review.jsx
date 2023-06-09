@@ -8,7 +8,7 @@ import ReviewDatas from "./ReviewDatas";
 
 const Review = () => {
   const [review] = useReview();
-  console.log(review);
+
   return (
     <div className="my_container my-20">
       <Heading title={`What Our Kid's Parent Say`}></Heading>

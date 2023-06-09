@@ -3,6 +3,7 @@ import Banner from "./Banner/Banner";
 import ContactUs from "./ContactUs/ContactUs";
 import Review from "./ParentReview/Review";
 import WeAre from "./WhoWeAre/WeAre";
+import News from "./LatestNews/News";
 
 const Home = () => {
   return (
@@ -13,9 +14,12 @@ const Home = () => {
       </Helmet>
       {/* banner part  */}
       <Banner></Banner>
-      {/* paretn review */}
       {/* Who we are */}
       <WeAre></WeAre>
+      {/* latest news
+       */}
+      <News></News>
+      {/* paretn review */}
       <Review></Review>
       {/* contact us  */}
       <ContactUs></ContactUs>
