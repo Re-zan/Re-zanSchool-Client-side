@@ -11,7 +11,7 @@ const Review = () => {
   console.log(review);
   return (
     <div className="my_container my-20">
-      <Heading></Heading>
+      <Heading title={`What Our Kid's Parent Say`}></Heading>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         {review.map((datas) => (
           <>
