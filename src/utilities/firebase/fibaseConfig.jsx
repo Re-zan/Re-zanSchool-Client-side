@@ -4,14 +4,14 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-console.log(import.meta.env.VITE_apiKey);
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAMl4psbtwrjWgkHrrVq9LziAj9K3e0n0A",
-  authDomain: "re-zanschool.firebaseapp.com",
-  projectId: "re-zanschool",
-  storageBucket: "re-zanschool.appspot.com",
-  messagingSenderId: "892361239898",
-  appId: "1:892361239898:web:9ceeb64fff1a9951ef1763",
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
