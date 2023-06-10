@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Instructors from "../Pages/Instructors/Instructors";
 import OurClasses from "../Pages/OurClasses/OurClasses";
 import Login from "../Pages/LoginPage/Laogin";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,11 @@ const router = createBrowserRouter([
       },
       {
         path: "instructors",
-        element: <Instructors></Instructors>,
+        element: (
+          <PrivateRoute>
+            <Instructors></Instructors>
+          </PrivateRoute>
+        ),
       },
       {
         path: "our-classes",

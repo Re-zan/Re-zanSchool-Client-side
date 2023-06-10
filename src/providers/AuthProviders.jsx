@@ -21,16 +21,19 @@ const AuthProviders = ({ children }) => {
 
   //sign in
   const creatUser = (email, password) => {
+    setLoader(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   //login
   const logIn = (email, password) => {
+    setLoader(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   //logout
   const logOut = () => {
+    setLoader(true);
     return signOut(auth);
   };
   //google log in
