@@ -27,7 +27,6 @@ const AuthProviders = ({ children }) => {
 
   //login
   const logIn = (email, password) => {
-    setLoader(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 

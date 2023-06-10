@@ -10,11 +10,24 @@ import Heading from "../../components/Heading/Heading";
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import SocialLogIn from "../../components/SocialLogin/SocialLogIn";
+
+//register
 const Regisert = () => {
+  //auth
   const { creatUser, profile } = useAuth();
+
+  //location
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
+  //state
   const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
+
+  //usefrom
   const {
     register,
     formState: { errors },
@@ -22,6 +35,7 @@ const Regisert = () => {
     reset,
   } = useForm();
 
+  //register start
   const onSubmit = (data) => {
     setError("");
     if (data.password !== data.confrim_password) {
@@ -30,12 +44,34 @@ const Regisert = () => {
       creatUser(data.email, data.password)
         .then((result) => {
           const user = result.user;
-          console.log(result);
-          reset();
+
           profile(user, data.name, data.photo);
+          const userData = {
+            name: data.name,
+            email: user.email,
+            number: data.number,
+            photo: data.photo,
+            password: data.password,
+          };
+
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(userData),
+          })
+            .then(() => {
+              reset();
+              navigate(from, { replace: true });
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         })
         .catch((error) => {
-          setError(error.meassage);
+          console.log(error);
+          setError(error.message);
         });
     }
   };
@@ -106,7 +142,7 @@ const Regisert = () => {
             )}
           </div>
           {/* phone number  */}
-          <div className="form-control w-full my-4">
+          {/* <div className="form-control w-full my-4">
             <div className=" flex items-center justify-evenly bg-red-700 w-[300px] md:w-[600px] lg:w-[800px] mx-auto">
               <input
                 type="number"
@@ -114,7 +150,7 @@ const Regisert = () => {
                 className="input rounded-none w-full "
                 {...register("number", {
                   required: true,
-                  minLength: 11,
+                  maxLength: 11,
                   pattern:
                     /^\+?\d{1,3}[-.\s]?\(?\d{1,3}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
                 })}
@@ -126,9 +162,9 @@ const Regisert = () => {
                 This feild cann't be empty
               </p>
             )}
-            {errors.number?.type === "minLength" && (
+            {errors.number?.type === "maxLength" && (
               <p className=" text-red-800 text-center py-3">
-                Phone Number is less than 11 characters
+                Phone Number must be in 11 characters
               </p>
             )}
             {errors.number?.type === "pattern" && (
@@ -136,7 +172,7 @@ const Regisert = () => {
                 Phone Number must be validated
               </p>
             )}
-          </div>
+          </div> */}
           {/* pasword  */}
           <div className="form-control w-full my-4">
             <div className=" flex items-center justify-evenly bg-red-700 w-[300px] md:w-[600px] lg:w-[800px] mx-auto">
@@ -192,9 +228,8 @@ const Regisert = () => {
                 This feild cann't be empty
               </p>
             )}
-            <p className=" text-red-800 text-center py-3">{error}</p>
           </div>
-
+          <p className=" text-red-800 text-center py-3">{error}</p>
           <div className=" text-center">
             <button
               className="btn bg_gradient_design text-white border-0 w-[300px] md:w-[600px] lg:w-[800px] mx-auto "
@@ -214,6 +249,8 @@ const Regisert = () => {
             </Link>
           </div>
         </form>
+        <div className="divider">OR</div>
+        <SocialLogIn ForMWhere="Register "></SocialLogIn>
       </div>
     </div>
   );

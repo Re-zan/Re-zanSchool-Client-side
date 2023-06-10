@@ -5,10 +5,11 @@ import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import SocialLogIn from "../../components/SocialLogin/SocialLogIn";
 
 const Laogin = () => {
   const { logIn } = useAuth();
-
+  const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
   const {
     register,
@@ -18,12 +19,15 @@ const Laogin = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    setError("");
     logIn(data.email, data.password)
       .then((result) => {
         console.log(result.user);
         reset();
       })
-      .catch(() => {});
+      .catch((error) => {
+        setError(error.message);
+      });
     console.log(data);
   };
   const handleShowPass = () => {
@@ -93,7 +97,7 @@ const Laogin = () => {
               </p>
             )}
           </div>
-
+          <p className=" text-red-800 text-center py-3">{error}</p>
           <div className=" text-center">
             <button
               className="btn bg_gradient_design text-white border-0 w-[300px] md:w-[600px] lg:w-[800px] mx-auto "
@@ -113,6 +117,8 @@ const Laogin = () => {
             </Link>
           </div>
         </form>
+        <div className="divider">OR</div>
+        <SocialLogIn ForMWhere="Login"></SocialLogIn>
       </div>
     </div>
   );
