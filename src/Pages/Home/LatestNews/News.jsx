@@ -25,7 +25,7 @@ const News = () => {
           <div className=" my-20">
             <VerticalTimeline>
               {news.map((newsData) => (
-                <NewsData key={newsData.id} newsData={newsData}></NewsData>
+                <NewsData key={newsData._id} newsData={newsData}></NewsData>
               ))}
             </VerticalTimeline>
           </div>

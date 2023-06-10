@@ -16,12 +16,12 @@ const NewsData = ({ newsData }) => {
 
       <p>{news}</p>
 
-      <p className="flex items-center ">
+      <div className="flex items-center my-4">
         <img src={author_img} alt="" className="w-[50px]" />
         <h4 className="vertical-timeline-element-subtitle font[grand]">
           {author_name}
         </h4>
-      </p>
+      </div>
     </VerticalTimelineElement>
   );
 };

@@ -2,6 +2,7 @@ import { Rating } from "@smastrom/react-rating";
 import "./Review.css";
 import "@smastrom/react-rating/style.css";
 import { Fade } from "react-awesome-reveal";
+
 const ReviewDatas = ({ reviewData }) => {
   const { parent_name, rating, comment, img_url } = reviewData;
   return (

@@ -16,7 +16,7 @@ const Review = () => {
         {review.map((datas) => (
           <>
             {" "}
-            <SwiperSlide key={datas.id}>
+            <SwiperSlide key={datas._id}>
               {" "}
               <ReviewDatas reviewData={datas}></ReviewDatas>{" "}
             </SwiperSlide>
