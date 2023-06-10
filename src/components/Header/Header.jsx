@@ -1,6 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
+  const { user, logOut } = useAuth();
+  const handleLogout = () => {
+    logOut();
+  };
   const mainMenu = (
     <>
       <NavLink
@@ -70,10 +75,35 @@ const Header = () => {
           {" "}
           <ul className="menu menu-horizontal px-1 ">{mainMenu}</ul>
         </div>
-
-        <Link to="/login" className="btn bg_gradient_design text-white ">
-          Login
-        </Link>
+        {user ? (
+          <>
+            {" "}
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                isActive ? "text-[#c0392b]" : "text-black"
+              }
+            >
+              <li className=" mx-3 text-2xl font-medium font-fira list-none">
+                {" "}
+                Dashboard
+              </li>
+            </NavLink>
+            <button
+              to="/login"
+              className="btn bg_gradient_design text-white "
+              onClick={handleLogout}
+            >
+              logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/login" className="btn bg_gradient_design text-white ">
+              Login
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
