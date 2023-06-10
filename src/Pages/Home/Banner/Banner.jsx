@@ -4,8 +4,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination } from "swiper";
 import bannerImage1 from "../../../assets/BannerImages/watercolor-paint-box-plastic-bottle-easter-egg-paint-brushes-black-background.jpg";
-import bannerImage2 from "../../../assets/BannerImages/school-supplies-scattered-like-frame-chalkboard.jpg";
-import bannerImage3 from "../../../assets/BannerImages/close-up-person-s-hand-holding-painted-egg-with-paint-color-brushes-black-background.jpg";
+import bannerImage2 from "../../../assets/BannerImages/fugdf.jpg";
+import bannerImage3 from "../../../assets/BannerImages/uioi.jpg";
 import { Link } from "react-router-dom";
 import "./Banner.css";
 import { Fade } from "react-awesome-reveal";
@@ -16,7 +16,6 @@ const Banner = () => {
       centeredSlides={true}
       autoplay={{
         delay: 3500,
-        disableOnInteraction: false,
       }}
       pagination={{
         clickable: true,
@@ -71,7 +70,7 @@ const Banner = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div
-          className="h-[800px]"
+          className="h-[800px] relative"
           style={{
             backgroundImage: `url(${bannerImage2})`,
             backgroundPosition: "center",
@@ -79,7 +78,8 @@ const Banner = () => {
             backgroundSize: "cover",
           }}
         >
-          <div className="text-center pt-[200px] md:pt-[250px] text-white font-[grand] w-[300px] md:w-[500px] mx-auto  ">
+          <div className=" absolute bg-black bg-opacity-50 w-full h-full"></div>
+          <div className="text-center pt-[200px] md:pt-[250px] text-white font-[grand] w-[300px] md:w-[500px] mx-auto  z-50 ">
             <Fade cascade>
               <p className=" text-2xl ">
                 Ignite your creativity with Re-zanSchool's expertly curated art
@@ -115,7 +115,7 @@ const Banner = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div
-          className="h-[800px] bg-black bg-opacity-50"
+          className="h-[800px] bg-black bg-opacity-50 relative"
           style={{
             backgroundImage: `url(${bannerImage3})`,
             backgroundPosition: "center",
@@ -123,7 +123,8 @@ const Banner = () => {
             backgroundSize: "cover",
           }}
         >
-          <div className="text-center pt-[200px] md:pt-[250px] text-white font-[grand] w-[300px] md:w-[500px] mx-auto ">
+          <div className=" absolute bg-black bg-opacity-50 w-full h-full"></div>
+          <div className="text-center pt-[200px] md:pt-[250px] text-white font-[grand] w-[300px] md:w-[500px] mx-auto z-50">
             {" "}
             <Fade cascade>
               <p className=" text-2xl ">

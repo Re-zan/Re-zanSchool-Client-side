@@ -11,7 +11,10 @@ const Review = () => {
 
   return (
     <div className="my_container my-20">
-      <Heading title={`What Our Kid's Parent Say`}></Heading>
+      <Heading
+        title={`What Our Kid's Parent Say`}
+        des="Discover what parents are saying about Re-zanSchool: A nurturing environment that sparks creativity, unlocks potential, and fosters a love for art and craft in our children."
+      ></Heading>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         {review.map((datas) => (
           <>

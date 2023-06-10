@@ -7,16 +7,16 @@ const WeAre = () => {
         <img
           src={weAreImg}
           alt="Who We Are"
-          className=" h-[550px] transform transition duration-300 ease-in-out hover:rounded-3xl"
+          className=" md:h-[400px] lg:h-[550px] transform transition duration-300 ease-in-out hover:rounded-3xl"
         />
       </div>{" "}
-      <div className=" flex items-center">
+      <div className=" flex items-center p-4 md:p-0">
         <div>
           <h4 className="text-4xl  font-bold text-design">Who we are</h4>
           <p className="text-xl  font-normal mt-3 ">
             Unveiling the Beauty of Art and <br></br>Craft at Re-zanSchool.
           </p>
-          <p className="text-base  font-normal my-3  text-black w-[500px]">
+          <p className="text-base  font-normal my-3  text-black md:w-[300px] lg:w-[500px]">
             At Re-zanSchool, we are purveyors of artistic excellence, fostering
             a sanctuary where individuals can unleash their ingenuity. Our
             avant-garde approach cultivates a profound appreciation for art and

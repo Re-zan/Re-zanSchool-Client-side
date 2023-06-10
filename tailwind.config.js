@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         grand: ["Grand Hotel", "cursive"],
+        fira: ["Fira Sans", "sans-serif"],
       },
     },
   },

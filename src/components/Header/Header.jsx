@@ -9,7 +9,7 @@ const Header = () => {
           isActive ? "text-[#c0392b]" : "text-black"
         }
       >
-        <li className=" mx-3 text-2xl font-semibold">Home</li>
+        <li className=" mx-3 text-2xl font-medium font-fira">Home</li>
       </NavLink>
       <NavLink
         to="/instructors"
@@ -17,7 +17,7 @@ const Header = () => {
           isActive ? "text-[#c0392b]" : "text-black"
         }
       >
-        <li className=" mx-3 text-2xl font-semibold">Instructors</li>
+        <li className=" mx-3 text-2xl font-medium font-fira">Instructors</li>
       </NavLink>
       <NavLink
         to="/our-classes"
@@ -25,7 +25,7 @@ const Header = () => {
           isActive ? "text-[#c0392b]" : "text-black"
         }
       >
-        <li className=" mx-3 text-2xl font-semibold"> Classes</li>
+        <li className=" mx-3 text-2xl font-medium font-fira"> Classes</li>
       </NavLink>
     </>
   );
@@ -56,7 +56,10 @@ const Header = () => {
             {mainMenu}
           </ul>
         </div>
-        <Link to="/" className="text-2xl md:text-4xl  font-bold text-design ">
+        <Link
+          to="/"
+          className="text-2xl md:text-4xl  font-bold text-design font-fira"
+        >
           {" "}
           Re-ZanSchool
         </Link>
@@ -68,7 +71,7 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1 ">{mainMenu}</ul>
         </div>
 
-        <Link to="/login" className="btn bg_gradient_design text-white">
+        <Link to="/login" className="btn bg_gradient_design text-white ">
           Login
         </Link>
       </div>

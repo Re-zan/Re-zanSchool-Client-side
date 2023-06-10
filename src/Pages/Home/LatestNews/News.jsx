@@ -11,9 +11,14 @@ const News = () => {
   return (
     <div className=" my-20">
       {" "}
-      <Heading title={`Our Latest News`}> </Heading>
+      <Heading
+        title="Our Latest News"
+        des="Stay updated with Re-zanSchool's latest news: Inspiring exhibitions, workshops, guest speakers, and artistic retreats await you!"
+      >
+        {" "}
+      </Heading>
       <div
-        className="h-[1700px]  relative "
+        className="h-[2700px] md:h-[1700px]  relative "
         style={{
           backgroundImage: `url(${img1})`,
           backgroundPosition: "center",

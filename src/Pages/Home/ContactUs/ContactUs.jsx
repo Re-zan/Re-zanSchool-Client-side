@@ -1,8 +1,16 @@
 import { FaEnvelopeOpen, FaLocationArrow, FaYoutube } from "react-icons/fa";
 import conact from "../../../assets/ContactImage/contact imge.jpg";
+import { Form } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const ContactUs = () => {
+  const handleSuccess = () => {
+    toast("Your Email Has Been Sent SuccessFully");
+  };
   return (
-    <div className="card w-full bg-black bg-opacity-50 rounded-none  image-full  h-[1000px] md:h-[800px] lg:h-[650px]">
+    <div className="card w-full  rounded-none  image-full  h-[1000px] md:h-[800px] lg:h-[650px]">
+      <ToastContainer></ToastContainer>;
       <figure>
         <img src={conact} alt="contact Imge" className=" w-full rounded-none" />
       </figure>
@@ -29,14 +37,20 @@ const ContactUs = () => {
         </div>
 
         <div className="relative mt-5">
-          <input
-            type="text"
-            placeholder="Enter your email"
-            className="input input-bordered w-full pr-16"
-          />
-          <button className="btn  m-0 text-white bg_gradient_design absolute top-0 right-0 rounded-l-none">
-            Subscribe
-          </button>
+          <Form onSubmit={handleSuccess}>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="input input-bordered w-full pr-16 text-black"
+              required
+            />
+            <button
+              type="submit"
+              className="btn  m-0 text-white bg_gradient_design absolute top-0 right-0 rounded-l-none "
+            >
+              Subscribe
+            </button>
+          </Form>
         </div>
       </div>
     </div>
