@@ -1,5 +1,60 @@
+import { useState } from "react";
+import Swal from "sweetalert2";
+
 const UserData = ({ userData, index }) => {
-  const { email, name, photo } = userData;
+  //datas
+  const { _id, email, name, photo, role, number } = userData;
+
+  //disabled
+  const [disabledadmin, setDisabledadmin] = useState(false);
+  const [disabledinstructor, setDisabledinstructor] = useState(false);
+
+  //
+
+  //make admin
+  const handleadmin = (_id) => {
+    setDisabledadmin(true);
+    fetch(`http://localhost:5000/users/admin/${_id}`, {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${name} has become admin now`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+
+        console.log(data);
+      });
+  };
+  //make instructor
+  const handleinstructor = (_id) => {
+    setDisabledinstructor(true);
+
+    fetch(`http://localhost:5000/users/instructor/${_id}`, {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${name} has become instructor now`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+
+        console.log(data);
+      });
+  };
+
   return (
     <tr>
       <th>{index + 1}</th>
@@ -13,14 +68,29 @@ const UserData = ({ userData, index }) => {
           </div>
         </div>
       </td>
-      <td>98693463946</td>
-      <td>Student</td>
-      <td className="flex items-center">
-        <button className="btn bg_gradient_design  text-white mx-4">
-          Make admin
+      <td>{number ? number : "98693463946"} </td>
+      {role === "admin" && <td>admin</td>}
+      {role === "instructor" && <td>instructor</td>}
+      {role === "admin" || role === "instructor" || <td>student</td>}
+
+      <td className="flex items-center ">
+        <button
+          disabled={disabledadmin}
+          className={`btn ${
+            role === "admin" ? "bg-gray-400" : "bg_gradient_design"
+          }   text-white mx-4`}
+          onClick={() => handleadmin(_id)}
+        >
+          {role == "admin" ? " Admin" : "Make admin"}
         </button>
-        <button className="btn bg_gradient_design text-white mx-4">
-          Make Instructor
+        <button
+          disabled={disabledinstructor}
+          className={`btn ${
+            role === "instructor" ? "bg-gray-400" : "bg_gradient_design"
+          }   text-white mx-4`}
+          onClick={() => handleinstructor(_id)}
+        >
+          {role == "instructor" ? " Instructor" : " Make Instructor"}
         </button>
       </td>
     </tr>
