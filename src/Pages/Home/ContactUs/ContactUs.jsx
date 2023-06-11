@@ -2,7 +2,6 @@ import { FaEnvelopeOpen, FaLocationArrow, FaYoutube } from "react-icons/fa";
 import conact from "../../../assets/ContactImage/contact imge.jpg";
 import { Form } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const ContactUs = () => {
   const handleSuccess = () => {

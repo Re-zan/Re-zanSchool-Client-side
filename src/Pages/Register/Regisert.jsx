@@ -141,7 +141,7 @@ const Regisert = () => {
             )}
           </div>
           {/* phone number  */}
-          {/* <div className="form-control w-full my-4">
+          <div className="form-control w-full my-4">
             <div className=" flex items-center justify-evenly bg-red-700 w-[300px] md:w-[600px] lg:w-[800px] mx-auto">
               <input
                 type="number"
@@ -171,7 +171,7 @@ const Regisert = () => {
                 Phone Number must be validated
               </p>
             )}
-          </div> */}
+          </div>
           {/* pasword  */}
           <div className="form-control w-full my-4">
             <div className=" flex items-center justify-evenly bg-red-700 w-[300px] md:w-[600px] lg:w-[800px] mx-auto">

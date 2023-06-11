@@ -90,8 +90,8 @@ const DashBoardLayout = () => {
           <div className="navbar-end  flex items-center">
             <div className="dropdown dropdown-end z-50">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img src={user?.photoURL} />
+                <div className="w-80 rounded-full">
+                  <img src={user?.photoURL} className="w-[300px]" />
                 </div>
               </label>
               <ul
@@ -113,14 +113,14 @@ const DashBoardLayout = () => {
       </header>
 
       {/* main content */}
-      <main className="h-full ">
-        <div className="grid grid-cols-9 ">
+      <main>
+        <div className="grid grid-cols-9 min-h-screen">
           <div className=" col-span-2 bg-[#5e8699]">
             <div className="text-center my-5">
               <ul>{mainmenu}</ul>
             </div>
           </div>
-          <div className="col-span-7 ">
+          <div className="col-span-7  ">
             <Outlet></Outlet>
           </div>
         </div>
