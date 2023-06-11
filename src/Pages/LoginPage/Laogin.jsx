@@ -4,13 +4,23 @@ import Heading from "../../components/Heading/Heading";
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogIn from "../../components/SocialLogin/SocialLogIn";
 
 const Laogin = () => {
+  //auth
   const { logIn } = useAuth();
+
+  //states
   const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
+
+  //where to go
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
+  //login start
   const {
     register,
     formState: { errors },
@@ -24,15 +34,14 @@ const Laogin = () => {
       .then((result) => {
         console.log(result.user);
         reset();
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
       });
     console.log(data);
   };
-  const handleShowPass = () => {
-    setShowPass(true);
-  };
+
   return (
     <div className="my_container my-20">
       <Helmet>
@@ -47,7 +56,7 @@ const Laogin = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* email  */}
           <div className="form-control w-full my-4">
-            <div className=" flex items-center justify-evenly bg-red-700 w-[300px] md:w-[600px] lg:w-[800px] mx-auto">
+            <div className=" flex items-center justify-evenly bg-red-700 w-[300px] md:w-[600px]  mx-auto">
               <input
                 type="email"
                 placeholder="Enter Your email"
@@ -65,20 +74,18 @@ const Laogin = () => {
 
           {/* pasword  */}
           <div className="form-control w-full my-4">
-            <div className=" flex items-center justify-evenly bg-red-700 w-[300px] md:w-[600px] lg:w-[800px] mx-auto">
+            <div className=" flex items-center justify-evenly bg-red-700 w-[300px] md:w-[600px]  mx-auto">
               <input
                 type={`${showPass ? "text" : "password"}`}
                 placeholder="Enter Your password"
                 className="input rounded-none w-full "
                 {...register("password", {
                   required: true,
-                  minLength: 6,
-                  pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*]).*$/,
                 })}
               />
               <FaEye
                 className=" text-2xl mx-7 text-white"
-                onClick={handleShowPass}
+                onClick={() => setShowPass(!showPass)}
               ></FaEye>
             </div>
             {errors.password?.type === "required" && (
@@ -86,21 +93,11 @@ const Laogin = () => {
                 This feild cann't be empty
               </p>
             )}
-            {errors.password?.type === "minLength" && (
-              <p className=" text-red-800 text-center py-3">
-                Passowrd is less than 6 characters
-              </p>
-            )}
-            {errors.password?.type === "pattern" && (
-              <p className=" text-red-800 text-center py-3">
-                Passowrd doesn't have a capital letter and a special character
-              </p>
-            )}
           </div>
           <p className=" text-red-800 text-center py-3">{error}</p>
           <div className=" text-center">
             <button
-              className="btn bg_gradient_design text-white border-0 w-[300px] md:w-[600px] lg:w-[800px] mx-auto "
+              className="btn bg_gradient_design text-white border-0 w-[300px] md:w-[600px]  mx-auto "
               type="submit"
             >
               Login

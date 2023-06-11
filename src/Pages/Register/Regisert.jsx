@@ -66,6 +66,7 @@ const Regisert = () => {
               navigate(from, { replace: true });
             })
             .catch((error) => {
+              setError(error.message);
               console.log(error);
             });
         })
@@ -75,9 +76,7 @@ const Regisert = () => {
         });
     }
   };
-  const handleShowPass = () => {
-    setShowPass(true);
-  };
+
   return (
     <div className="my_container my-20">
       <Helmet>
@@ -188,7 +187,7 @@ const Regisert = () => {
               />
               <FaEye
                 className=" text-2xl mx-7 text-white"
-                onClick={handleShowPass}
+                onClick={() => setShowPass(!showPass)}
               ></FaEye>
             </div>
             {errors.password?.type === "required" && (
@@ -220,7 +219,7 @@ const Regisert = () => {
               />
               <FaEye
                 className=" text-2xl mx-7 text-white"
-                onClick={handleShowPass}
+                onClick={() => setShowPass(!showPass)}
               ></FaEye>
             </div>
             {errors.confrim_password?.type === "required" && (

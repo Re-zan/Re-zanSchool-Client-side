@@ -3,9 +3,13 @@ import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
   const { user, logOut } = useAuth();
+
+  //logut
   const handleLogout = () => {
     logOut();
   };
+
+  //menu start
   const mainMenu = (
     <>
       <NavLink
