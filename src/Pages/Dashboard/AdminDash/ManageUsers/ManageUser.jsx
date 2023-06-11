@@ -1,20 +1,12 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import UserData from "./UserData";
+import useUers from "../../../../hooks/useUers";
 
 const ManageUser = () => {
-  const [allUser, setAllUser] = useState();
-  useEffect(() => {
-    axios.get("http://localhost:5000/users").then((res) => {
-      setAllUser(res.data);
-    });
-  }, []);
-  console.log(allUser);
+  const [user, refetch] = useUers();
+
   return (
     <div className="text-center my-7">
-      <h2 className=" font-semibold text-3xl">
-        Total Users: {allUser?.length}
-      </h2>
+      <h2 className=" font-semibold text-3xl">Total Users: {user?.length}</h2>
 
       <div className="overflow-x-auto m-8">
         <table className="table table-xs ">
@@ -30,11 +22,12 @@ const ManageUser = () => {
             </tr>
           </thead>
           <tbody className="text-center text-base font-semibold">
-            {allUser?.map((datas, index) => (
+            {user?.map((datas, index) => (
               <UserData
                 key={datas._id}
                 userData={datas}
                 index={index}
+                refetch={refetch}
               ></UserData>
             ))}
           </tbody>

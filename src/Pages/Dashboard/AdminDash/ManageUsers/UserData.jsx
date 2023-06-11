@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 
-const UserData = ({ userData, index }) => {
+const UserData = ({ userData, index, refetch }) => {
   //datas
   const { _id, email, name, photo, role, number } = userData;
 
@@ -20,6 +20,7 @@ const UserData = ({ userData, index }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
+          refetch();
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -28,8 +29,6 @@ const UserData = ({ userData, index }) => {
             timer: 1500,
           });
         }
-
-        console.log(data);
       });
   };
   //make instructor
@@ -42,6 +41,7 @@ const UserData = ({ userData, index }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
+          refetch();
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -50,8 +50,6 @@ const UserData = ({ userData, index }) => {
             timer: 1500,
           });
         }
-
-        console.log(data);
       });
   };
 

@@ -1,9 +1,11 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import useAdmin from "../hooks/useAdmin";
 
 const DashBoardLayout = () => {
   const { user, logOut } = useAuth();
-
+  const [isadmin] = useAdmin();
+  console.log(isadmin);
   //logut
   const handleLogout = () => {
     logOut();
