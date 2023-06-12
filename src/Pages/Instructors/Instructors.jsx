@@ -16,7 +16,7 @@ const Instructors = () => {
           des="Discover what parents are saying about Re-zanSchool: A nurturing environment that sparks creativity, unlocks potential, and fosters a love for art and craft in our children."
         ></Heading>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 my-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 my-20">
           {getOnlyInstructor?.map((datas) => (
             <InstructorsData key={datas._id} datas={datas}></InstructorsData>
           ))}

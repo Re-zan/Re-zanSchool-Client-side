@@ -6,7 +6,7 @@ const PopukarInstractot = () => {
   const getOnlyInstructor = user
     .filter((datas) => datas.role === "instructor")
     .slice(0, 6);
-  console.log(getOnlyInstructor);
+
   return (
     <div className="my_container">
       <Heading

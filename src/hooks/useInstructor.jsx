@@ -11,7 +11,6 @@ const useInstructor = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.user);
         setIsInstructor(data.user);
       });
   }, []);

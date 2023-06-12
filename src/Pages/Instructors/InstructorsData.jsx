@@ -14,7 +14,7 @@ const InstructorsData = ({ datas }) => {
           <FaPhoneAlt></FaPhoneAlt>
           <p className="mx-4">{number}</p>
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center ">
           {" "}
           <FaEnvelopeOpen></FaEnvelopeOpen>
           <p className="mx-4">{email}</p>

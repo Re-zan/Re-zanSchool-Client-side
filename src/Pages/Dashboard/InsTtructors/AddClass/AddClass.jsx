@@ -1,17 +1,20 @@
 import axios from "axios";
-import useInstructorUser from "../../../../hooks/useInstructorUser";
+
 import { useForm } from "react-hook-form";
+import useInstructor from "../../../../hooks/useInstructor";
+import { ToastContainer, toast } from "react-toastify";
 
 const token = import.meta.env.VITE_IMAGE_TOKEN;
 
 const AddClass = () => {
-  const [userInstructor] = useInstructorUser();
-  console.log(userInstructor);
+  const [isInstructor] = useInstructor();
+
   const imag_url_Link = `https://api.imgbb.com/1/upload?key=${token}`;
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
@@ -27,6 +30,8 @@ const AddClass = () => {
           const imagData_url = resData.data.display_url;
           const { class_name, available_seats, price } = data;
           const classData = {
+            instructor_name: isInstructor?.name,
+            instructor_email: isInstructor?.email,
             class_name,
             available_seats: parseInt(available_seats),
             price: parseFloat(price),
@@ -36,22 +41,37 @@ const AddClass = () => {
             .post("http://localhost:5000/classes", { classData })
             // .then((res) => res.json())
             .then((data) => {
+              toast("A New Class Added Successfully");
+              reset();
               console.log(data);
             });
           // console.log(classData);
         }
       });
-
-    console.log(data);
   };
 
   return (
     <div className=" m-10">
+      <ToastContainer></ToastContainer>
       <h2 className="text-2xl text-center my-3 font-semibold">
         Add A New Class
       </h2>
       <div>
         <form onSubmit={handleSubmit(onSubmit)} className=" bg-slate-400 p-10">
+          <div className="form-control w-full  my-4">
+            <input
+              type="text"
+              value={isInstructor?.name}
+              className="input input-bordered w-full "
+            />
+          </div>
+          <div className="form-control w-full  my-4">
+            <input
+              type="email"
+              value={isInstructor?.email}
+              className="input input-bordered w-full "
+            />
+          </div>
           <div className="form-control w-full  my-4">
             <input
               type="text"
