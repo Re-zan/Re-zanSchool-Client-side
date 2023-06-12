@@ -36,9 +36,10 @@ const AddClass = () => {
             available_seats: parseInt(available_seats),
             price: parseFloat(price),
             image: imagData_url,
+            status: "pending",
           };
           axios
-            .post("http://localhost:5000/classes", { classData })
+            .post("http://localhost:5000/classes", classData)
             // .then((res) => res.json())
             .then((data) => {
               toast("A New Class Added Successfully");

@@ -89,13 +89,7 @@ const Footer = () => {
           </h2>
           <ul>{mainmenu}</ul>
         </div>
-        <div className="hidden lg:block">
-          <h2 className="text-2xl font-semibold text-white mt-6 mb-5">
-            Products
-          </h2>
 
-          <div className=" w-[200px] h-[200px] ">dfigudf gigudifgu</div>
-        </div>
         <div>
           <h2 className="text-2xl font-semibold text-white mt-6 mb-5">
             Contact us

@@ -98,7 +98,7 @@ const DashBoardLayout = () => {
     </>
   );
   return (
-    <div className="my_container">
+    <div className="">
       {/* header start  */}
       <header>
         <div className="navbar bg-[#7da6b9] p-6 ">
