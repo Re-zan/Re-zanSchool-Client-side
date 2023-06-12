@@ -4,6 +4,7 @@ import ContactUs from "./ContactUs/ContactUs";
 import Review from "./ParentReview/Review";
 import WeAre from "./WhoWeAre/WeAre";
 import News from "./LatestNews/News";
+import PopukarInstractot from "./PopularInstructor/PopukarInstractot";
 
 const Home = () => {
   return (
@@ -16,8 +17,8 @@ const Home = () => {
       <Banner></Banner>
       {/* Who we are */}
       <WeAre></WeAre>
-      {/* latest news
-       */}
+      {/* latest news*/}
+      <PopukarInstractot></PopukarInstractot>
       <News></News>
       {/* paretn review */}
       <Review></Review>

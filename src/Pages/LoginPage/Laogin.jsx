@@ -31,15 +31,13 @@ const Laogin = () => {
   const onSubmit = (data) => {
     setError("");
     logIn(data.email, data.password)
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
         reset();
         navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
       });
-    console.log(data);
   };
 
   return (

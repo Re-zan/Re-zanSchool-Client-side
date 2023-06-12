@@ -26,6 +26,7 @@ const Regisert = () => {
   //state
   const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
+  const [showPassconfrim, setShowPassconfrim] = useState(false);
 
   //usefrom
   const {
@@ -210,7 +211,7 @@ const Regisert = () => {
           <div className="form-control w-full my-4">
             <div className=" flex items-center justify-evenly bg-red-700 w-[300px] md:w-[600px] lg:w-[800px] mx-auto">
               <input
-                type={`${showPass ? "text" : "password"}`}
+                type={`${showPassconfrim ? "text" : "password"}`}
                 placeholder="Enter Your confrim password"
                 className="input rounded-none w-full "
                 {...register("confrim_password", {
@@ -219,7 +220,7 @@ const Regisert = () => {
               />
               <FaEye
                 className=" text-2xl mx-7 text-white"
-                onClick={() => setShowPass(!showPass)}
+                onClick={() => setShowPassconfrim(!showPassconfrim)}
               ></FaEye>
             </div>
             {errors.confrim_password?.type === "required" && (

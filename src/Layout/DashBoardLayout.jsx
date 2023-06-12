@@ -1,75 +1,100 @@
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import useAdmin from "../hooks/useAdmin";
+import useInstruct from "../hooks/useInstruct";
 
 const DashBoardLayout = () => {
   const { user, logOut } = useAuth();
   const [isadmin] = useAdmin();
-  console.log(isadmin);
+  const [isisInstructor] = useInstruct();
+
   //logut
+  const navigate = useNavigate();
   const handleLogout = () => {
     logOut();
+    navigate("/");
   };
 
   //menu
   const mainmenu = (
     <>
-      <NavLink
-        to="/dashboard/manage_classes"
-        className={({ isActive }) =>
-          isActive ? "text-[#a72112]" : "text-white"
-        }
-      >
-        <li className=" my-4 text-sm md:text-2xl font-semibold">
-          Manage Classes
-        </li>
-      </NavLink>
-      <NavLink
-        to="/dashboard/manage_user"
-        className={({ isActive }) =>
-          isActive ? "text-[#a72112]" : "text-white"
-        }
-      >
-        <li className=" my-4 text-sm md:text-2xl font-semibold">
-          Manage Users
-        </li>
-      </NavLink>
-      <NavLink
-        to="/dashboard/add_class"
-        className={({ isActive }) =>
-          isActive ? "text-[#a72112]" : "text-white"
-        }
-      >
-        <li className=" my-4 text-sm md:text-2xl font-semibold">Add A Class</li>
-      </NavLink>
-      <NavLink
-        to="/dashboard/my_classes"
-        className={({ isActive }) =>
-          isActive ? "text-[#a72112]" : "text-white"
-        }
-      >
-        <li className=" my-4 text-sm md:text-2xl font-semibold">My Classes</li>
-      </NavLink>
-      <NavLink
-        to="/dashboard/my_selected_classes"
-        className={({ isActive }) =>
-          isActive ? "text-[#a72112]" : "text-white"
-        }
-      >
-        <li className=" my-4 text-sm md:text-2xl font-semibold">
-          My Selected Classes
-        </li>
-      </NavLink>
-      <NavLink
-        to="/dashboard/my_enrolledment_classes"
-        className={({ isActive }) =>
-          isActive ? "text-[#a72112]" : "text-white"
-        }
-      >
-        <li className=" my-4 text-sm md:text-2xl font-semibold">
-          My Enrolled Classes
-        </li>
-      </NavLink>
+      {isadmin && (
+        <>
+          {" "}
+          <NavLink
+            to="/dashboard/manage_classes"
+            className={({ isActive }) =>
+              isActive ? "text-[#a72112]" : "text-white"
+            }
+          >
+            <li className=" my-4 text-sm md:text-2xl font-semibold">
+              Manage Classes
+            </li>
+          </NavLink>
+          <NavLink
+            to="/dashboard/manage_user"
+            className={({ isActive }) =>
+              isActive ? "text-[#a72112]" : "text-white"
+            }
+          >
+            <li className=" my-4 text-sm md:text-2xl font-semibold">
+              Manage Users
+            </li>
+          </NavLink>
+        </>
+      )}
+
+      <>
+        {isisInstructor && (
+          <>
+            {" "}
+            <NavLink
+              to="/dashboard/add_class"
+              className={({ isActive }) =>
+                isActive ? "text-[#a72112]" : "text-white"
+              }
+            >
+              <li className=" my-4 text-sm md:text-2xl font-semibold">
+                Add A Class
+              </li>
+            </NavLink>
+            <NavLink
+              to="/dashboard/my_classes"
+              className={({ isActive }) =>
+                isActive ? "text-[#a72112]" : "text-white"
+              }
+            >
+              <li className=" my-4 text-sm md:text-2xl font-semibold">
+                My Classes
+              </li>
+            </NavLink>
+          </>
+        )}{" "}
+        {isisInstructor || isadmin || (
+          <>
+            <NavLink
+              to="/dashboard/my_selected_classes"
+              className={({ isActive }) =>
+                isActive ? "text-[#a72112]" : "text-white"
+              }
+            >
+              <li className=" my-4 text-sm md:text-2xl font-semibold">
+                My Selected Classes
+              </li>
+            </NavLink>
+            <NavLink
+              to="/dashboard/my_enrolledment_classes"
+              className={({ isActive }) =>
+                isActive ? "text-[#a72112]" : "text-white"
+              }
+            >
+              <li className=" my-4 text-sm md:text-2xl font-semibold">
+                My Enrolled Classes
+              </li>
+            </NavLink>
+          </>
+        )}
+      </>
     </>
   );
   return (
