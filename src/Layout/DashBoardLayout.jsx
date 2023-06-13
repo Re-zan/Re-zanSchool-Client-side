@@ -7,6 +7,7 @@ const DashBoardLayout = () => {
   const { user, logOut } = useAuth();
   const [isadmin] = useAdmin();
   const [isisInstructor] = useInstruct();
+  console.log(isadmin);
 
   //logut
   const navigate = useNavigate();

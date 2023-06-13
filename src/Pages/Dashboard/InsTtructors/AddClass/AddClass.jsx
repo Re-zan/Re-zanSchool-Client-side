@@ -39,7 +39,7 @@ const AddClass = () => {
             status: "pending",
           };
           axios
-            .post("http://localhost:5000/classes", classData)
+            .post("https://re-school-camp-server.vercel.app/classes", classData)
             // .then((res) => res.json())
             .then((data) => {
               toast("A New Class Added Successfully");

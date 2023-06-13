@@ -14,6 +14,7 @@ import DashBoard from "../Pages/Dashboard/DashBoard";
 import AddClass from "../Pages/Dashboard/InsTtructors/AddClass/AddClass";
 import InstructorClasses from "../Pages/Dashboard/InsTtructors/InstructorClasses/InstructorClasses";
 import AdminPrivateRoute from "./AdminPrivateRoute";
+import InstructorPrivateRoute from "./InstructorPrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -61,16 +62,28 @@ const router = createBrowserRouter([
       },
       {
         path: "manage_user",
-        element: <ManageUser></ManageUser>,
+        element: (
+          <AdminPrivateRoute>
+            <ManageUser></ManageUser>
+          </AdminPrivateRoute>
+        ),
       },
       //instructor routess
       {
         path: "add_class",
-        element: <AddClass></AddClass>,
+        element: (
+          <InstructorPrivateRoute>
+            <AddClass></AddClass>
+          </InstructorPrivateRoute>
+        ),
       },
       {
         path: "my_classes",
-        element: <InstructorClasses></InstructorClasses>,
+        element: (
+          <InstructorPrivateRoute>
+            <InstructorClasses></InstructorClasses>
+          </InstructorPrivateRoute>
+        ),
       },
       //student routes
       {

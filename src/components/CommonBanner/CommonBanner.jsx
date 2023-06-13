@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import CommonBannerImg from "../../assets/CommonBannerImage/img.jpg";
 
-const CommonBanner = () => {
+const CommonBanner = ({ BannerImg, title }) => {
   return (
     <div
       className=" h-[600px]"
       style={{
-        backgroundImage: `url(${CommonBannerImg})`,
+        backgroundImage: `url(${BannerImg})`,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
@@ -56,7 +55,7 @@ const CommonBanner = () => {
                         d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
                       ></path>
                     </svg>
-                    Instructors
+                    {title}
                   </a>
                 </li>
               </ul>

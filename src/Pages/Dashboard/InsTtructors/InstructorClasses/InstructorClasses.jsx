@@ -8,7 +8,7 @@ const InstructorClasses = () => {
     <div>
       <div className="text-center my-7">
         <h2 className=" font-semibold text-3xl">
-          Total Users: {insTructorClassesData?.length}
+          My Classes: {insTructorClassesData?.length}
         </h2>
 
         <div className="overflow-x-auto m-8">

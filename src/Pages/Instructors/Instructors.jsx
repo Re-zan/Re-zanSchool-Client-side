@@ -2,6 +2,7 @@ import CommonBanner from "../../components/CommonBanner/CommonBanner";
 import Heading from "../../components/Heading/Heading";
 import useUsers from "../../hooks/useUers";
 import InstructorsData from "./InstructorsData";
+import BannerImag from "../../assets/CommonBannerImage/img.jpg";
 
 const Instructors = () => {
   const [user] = useUsers();
@@ -9,7 +10,7 @@ const Instructors = () => {
 
   return (
     <div>
-      <CommonBanner></CommonBanner>
+      <CommonBanner BannerImg={BannerImag} title="Instructors"></CommonBanner>
       <div className="my_container">
         <Heading
           title="Meet with our instructors"

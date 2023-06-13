@@ -14,7 +14,7 @@ const UserData = ({ userData, index, refetch }) => {
   //make admin
   const handleadmin = (_id) => {
     setDisabledadmin(true);
-    fetch(`http://localhost:5000/users/admin/${_id}`, {
+    fetch(`https://re-school-camp-server.vercel.app/users/admin/${_id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -35,7 +35,7 @@ const UserData = ({ userData, index, refetch }) => {
   const handleinstructor = (_id) => {
     setDisabledinstructor(true);
 
-    fetch(`http://localhost:5000/users/instructor/${_id}`, {
+    fetch(`https://re-school-camp-server.vercel.app/users/instructor/${_id}`, {
       method: "PUT",
     })
       .then((res) => res.json())

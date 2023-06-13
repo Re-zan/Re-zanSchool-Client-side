@@ -56,17 +56,16 @@ const AuthProviders = ({ children }) => {
       setUser(currentUser);
       if (currentUser) {
         axios
-          .post("http://localhost:5000/users/jwt", {
+          .post("https://re-school-camp-server.vercel.app/users/jwt", {
             email: currentUser?.email,
           })
           .then((data) => {
             localStorage.setItem("access-token", data.data);
+            setLoader(false);
           });
       } else {
         localStorage.removeItem("access-token");
       }
-
-      setLoader(false);
     });
     return () => {
       unsubscriber();

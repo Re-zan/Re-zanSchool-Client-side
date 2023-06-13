@@ -6,7 +6,7 @@ const useReview = () => {
     queryKey: ["review"],
     queryFn: async () => {
       const dsfsd = await axios.get(
-        "https://re-school-camp-server-side.vercel.app/parentReviews"
+        "https://re-school-camp-server.vercel.app/parentReviews"
       );
       return dsfsd.data;
     },

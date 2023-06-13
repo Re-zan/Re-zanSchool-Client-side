@@ -6,7 +6,7 @@ const useNews = () => {
     queryKey: ["news"],
     queryFn: async () => {
       const res = await axios.get(
-        "https://re-school-camp-server-side-re-zan.vercel.app/news"
+        "https://re-school-camp-server.vercel.app/news"
       );
       return res.data;
     },
