@@ -4,11 +4,17 @@ import useAuth from "./useAuth";
 const useInstructor = () => {
   const [isInstructor, setIsInstructor] = useState();
   const { user, loader } = useAuth();
-
+  const token = localStorage.getItem("access-token");
   useEffect(() => {
-    fetch(`http://localhost:5000/users/instructor/${user?.email}`, {
-      method: "GET",
-    })
+    fetch(
+      `https://re-school-camp-server.vercel.app/users/instructor/${user?.email}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `beare ${token}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setIsInstructor(data.user);

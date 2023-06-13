@@ -16,7 +16,7 @@ const ManageClassesData = ({ datas, index, refetch }) => {
 
   const [approvedStatus, setApprovedStatus] = useState(false);
   const handleApproved = (_id) => {
-    fetch(`http://localhost:5000/classes/approved/${_id}`, {
+    fetch(`https://re-school-camp-server.vercel.app/classes/approved/${_id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -35,7 +35,7 @@ const ManageClassesData = ({ datas, index, refetch }) => {
       });
   };
   const handleDined = (_id) => {
-    fetch(`http://localhost:5000/classes/deny/${_id}`, {
+    fetch(`https://re-school-camp-server.vercel.app/classes/deny/${_id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())

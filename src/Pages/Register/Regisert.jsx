@@ -55,7 +55,7 @@
 //             password: data.password,
 //           };
 
-//           fetch("http://localhost:5000/users", {
+//           fetch("https://re-school-camp-server.vercel.app/users", {
 //             method: "POST",
 //             headers: {
 //               "content-type": "application/json",
@@ -314,7 +314,7 @@ const Regisert = () => {
             password: data.password,
           };
 
-          fetch("http://localhost:5000/users", {
+          fetch("https://re-school-camp-server.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",

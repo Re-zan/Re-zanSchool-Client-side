@@ -10,7 +10,7 @@ const useInstruct = () => {
     enabled: !loader && !!user?.email && !!localStorage.getItem("access-token"),
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:5000/users/instructor/${user?.email}`,
+        `https://re-school-camp-server.vercel.app/users/instructor/${user?.email}`,
         {
           headers: {
             authorization: `beare ${token}`,

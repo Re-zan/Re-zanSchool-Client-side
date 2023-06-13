@@ -15,7 +15,7 @@ const useAdmin = () => {
     enabled: !loader && !!user?.email && !!localStorage.getItem("access-token"),
     queryFn: async () => {
       const response = await axios.get(
-        `http://localhost:5000/users/admin/${user?.email}`,
+        `https://re-school-camp-server.vercel.app/users/admin/${user?.email}`,
         {
           headers: {
             authorization: `beare ${token}`,
