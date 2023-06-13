@@ -6,7 +6,7 @@ const useInstructorClass = () => {
 
   const [insTructorClassesData, setInsTructorClasses] = useState();
   useEffect(() => {
-    fetch(`https://re-school-camp-server.vercel.app/classes/${user?.email}`, {
+    fetch(`http://localhost:5000/classes/${user?.email}`, {
       method: "GET",
     })
       .then((res) => res.json())

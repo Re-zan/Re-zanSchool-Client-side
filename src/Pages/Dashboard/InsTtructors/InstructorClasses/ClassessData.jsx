@@ -1,5 +1,5 @@
 const ClassessData = ({ classData, index }) => {
-  const { instructor_name, image, price, available_seats, class_name } =
+  const { instructor_name, image, price, available_seats, class_name, status } =
     classData;
   return (
     <tr>
@@ -15,9 +15,24 @@ const ClassessData = ({ classData, index }) => {
         </div>
       </td>
       <td>{price}</td>
+      {status === "pending" && (
+        <>
+          <td>pending</td>
+        </>
+      )}
+      {status === "approved" && (
+        <>
+          <td>approved</td>
+        </>
+      )}
+      {status === "dined" && (
+        <>
+          <td>dined</td>
+        </>
+      )}
       <td>{available_seats}</td>
       <td>0</td>
-      <td>Feedback</td>
+      <td>===</td>
       <td>
         {" "}
         <button className="btn ">Update</button>

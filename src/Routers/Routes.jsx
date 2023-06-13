@@ -68,6 +68,7 @@ const router = createBrowserRouter([
           </AdminPrivateRoute>
         ),
       },
+
       //instructor routess
       {
         path: "add_class",

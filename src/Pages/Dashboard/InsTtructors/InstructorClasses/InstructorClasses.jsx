@@ -19,6 +19,7 @@ const InstructorClasses = () => {
                 <th>Class Name</th>
                 <th>Image</th>
                 <th>Price</th>
+                <th>Status</th>
                 <th>Available seats</th>
                 <th>Total Enrolled Students</th>
                 <th>Feedback</th>

@@ -5,9 +5,7 @@ const useNews = () => {
   const { data: news = [] } = useQuery({
     queryKey: ["news"],
     queryFn: async () => {
-      const res = await axios.get(
-        "https://re-school-camp-server.vercel.app/news"
-      );
+      const res = await axios.get("http://localhost:5000/news");
       return res.data;
     },
   });

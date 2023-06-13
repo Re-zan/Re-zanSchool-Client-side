@@ -6,12 +6,9 @@ const useInstructor = () => {
   const { user, loader } = useAuth();
 
   useEffect(() => {
-    fetch(
-      `https://re-school-camp-server.vercel.app/users/instructor/${user?.email}`,
-      {
-        method: "GET",
-      }
-    )
+    fetch(`http://localhost:5000/users/instructor/${user?.email}`, {
+      method: "GET",
+    })
       .then((res) => res.json())
       .then((data) => {
         setIsInstructor(data.user);

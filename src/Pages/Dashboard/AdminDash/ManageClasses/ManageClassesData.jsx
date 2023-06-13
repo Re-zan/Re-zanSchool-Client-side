@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Swal from "sweetalert2";
 
 const ManageClassesData = ({ datas, index, refetch }) => {
@@ -12,13 +14,15 @@ const ManageClassesData = ({ datas, index, refetch }) => {
     available_seats,
   } = datas;
 
+  const [approvedStatus, setApprovedStatus] = useState(false);
   const handleApproved = (_id) => {
-    fetch(`https://re-school-camp-server.vercel.app/classes/approved/${_id}`, {
+    fetch(`http://localhost:5000/classes/approved/${_id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
+          setApprovedStatus(true);
           refetch();
           Swal.fire({
             position: "top-end",
@@ -31,12 +35,13 @@ const ManageClassesData = ({ datas, index, refetch }) => {
       });
   };
   const handleDined = (_id) => {
-    fetch(`https://re-school-camp-server.vercel.app/classes/deny/${_id}`, {
+    fetch(`http://localhost:5000/classes/deny/${_id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
+          setApprovedStatus(true);
           refetch();
           Swal.fire({
             position: "top-end",
@@ -48,6 +53,7 @@ const ManageClassesData = ({ datas, index, refetch }) => {
         }
       });
   };
+
   return (
     <tr>
       <th>{index + 1}</th>
@@ -83,10 +89,18 @@ const ManageClassesData = ({ datas, index, refetch }) => {
 
       <td>
         {" "}
-        <button className="btn btn-success" onClick={() => handleApproved(_id)}>
+        <button
+          disabled={approvedStatus}
+          className="btn btn-success"
+          onClick={() => handleApproved(_id)}
+        >
           Approve
         </button>
-        <button className="btn btn-error m-2" onClick={() => handleDined(_id)}>
+        <button
+          disabled={approvedStatus}
+          className="btn btn-error m-2"
+          onClick={() => handleDined(_id)}
+        >
           Deny{" "}
         </button>
         <button className="btn btn-info">feedback</button>

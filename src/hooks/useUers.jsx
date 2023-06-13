@@ -5,9 +5,7 @@ const useUers = () => {
   const { data: user = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const response = await axios.get(
-        "https://re-school-camp-server.vercel.app/users"
-      );
+      const response = await axios.get("http://localhost:5000/users");
       //   console.log(response.data);
       return response.data;
     },

@@ -3,6 +3,15 @@ import useAuth from "../hooks/useAuth";
 import useAdmin from "../hooks/useAdmin";
 import useInstruct from "../hooks/useInstruct";
 
+import {
+  FaAd,
+  FaAddressCard,
+  FaUserCheck,
+  FaUserEdit,
+  FaUserGraduate,
+  FaUsers,
+} from "react-icons/fa";
+
 const DashBoardLayout = () => {
   const { user, logOut } = useAuth();
   const [isadmin] = useAdmin();
@@ -28,8 +37,8 @@ const DashBoardLayout = () => {
               isActive ? "text-[#a72112]" : "text-white"
             }
           >
-            <li className=" my-4 text-sm md:text-2xl font-semibold">
-              Manage Classes
+            <li className=" my-4 text-sm md:text-2xl font-semibold flex justify-center items-center">
+              <FaUserGraduate className=" mx-3"></FaUserGraduate> Manage Classes
             </li>
           </NavLink>
           <NavLink
@@ -38,8 +47,8 @@ const DashBoardLayout = () => {
               isActive ? "text-[#a72112]" : "text-white"
             }
           >
-            <li className=" my-4 text-sm md:text-2xl font-semibold">
-              Manage Users
+            <li className=" my-4 text-sm md:text-2xl font-semibold flex justify-center items-center">
+              <FaUsers className=" mx-3"></FaUsers> Manage Users
             </li>
           </NavLink>
         </>
@@ -55,8 +64,8 @@ const DashBoardLayout = () => {
                 isActive ? "text-[#a72112]" : "text-white"
               }
             >
-              <li className=" my-4 text-sm md:text-2xl font-semibold">
-                Add A Class
+              <li className=" my-4 text-sm md:text-2xl font-semibold flex justify-center items-center">
+                <FaAd className="mx-3"></FaAd> Add A Class
               </li>
             </NavLink>
             <NavLink
@@ -65,8 +74,8 @@ const DashBoardLayout = () => {
                 isActive ? "text-[#a72112]" : "text-white"
               }
             >
-              <li className=" my-4 text-sm md:text-2xl font-semibold">
-                My Classes
+              <li className=" my-4 text-sm md:text-2xl font-semibold flex justify-center items-center">
+                <FaUserEdit className="mx-3"></FaUserEdit> My Classes
               </li>
             </NavLink>
           </>
@@ -79,8 +88,8 @@ const DashBoardLayout = () => {
                 isActive ? "text-[#a72112]" : "text-white"
               }
             >
-              <li className=" my-4 text-sm md:text-2xl font-semibold">
-                My Selected Classes
+              <li className=" my-4 text-sm md:text-2xl font-semibold flex justify-center items-center">
+                <FaUserCheck className="mx-3"></FaUserCheck> My Selected Classes
               </li>
             </NavLink>
             <NavLink
@@ -89,8 +98,9 @@ const DashBoardLayout = () => {
                 isActive ? "text-[#a72112]" : "text-white"
               }
             >
-              <li className=" my-4 text-sm md:text-2xl font-semibold">
-                My Enrolled Classes
+              <li className=" my-4 text-sm md:text-2xl font-semibold flex justify-center items-center">
+                <FaAddressCard className="mx-3"></FaAddressCard> My Enrolled
+                Classes
               </li>
             </NavLink>
           </>

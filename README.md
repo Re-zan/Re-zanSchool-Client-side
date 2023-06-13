@@ -1,18 +1,18 @@
-# Re-zanToys
+# Re-ZanSchool
 
-A Beautiful Toy Market Place Where You Can Add Your Toy, Search Toys, Can Read The Deatils And So On.
+Re-zanSchool is basically art and craft related website where user can buy a class and also known about our instructors.
 
 ## Live Link
 
-- Hosted in Firebase -> [Re-zanToys](https://re-zantoys.web.app/)
+- Hosted in Firebase -> [Re-zanSchool](https://re-zanschool.web.app/)
 
-## Starter Template Client Side
+- Re-zanScool has a payment getway system
+- Re-zanScool has a dashboard where has three roles
+- Admin can manage users and their classes.
+- Instructor can add classes and see his or him classes.
+- Student can buy classes.
 
-- GitHub Repo -> [Re-zanToys starter](https://github.com/programming-hero-web-course-4/b7a11-toy-marketplace-client-side-Re-zan)
-
-## Starter Template Server Side
-
-- GitHub Repo -> [Re-zanToys starter](https://github.com/programming-hero-web-course-4/b7a11-toy-marketplace-server-side-Re-zan)
+## Used packages/ technology name
 
 ## React Router Dom v6.4
 
