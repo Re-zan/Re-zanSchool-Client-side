@@ -18,10 +18,9 @@ Re-zanSchool is basically art and craft related website where user can buy a cla
 
 - Documentation Link -> [Link](https://reactrouter.com/en/main/start/overview)
 
-## Resources & Credits
+## React Icon
 
 - React Icon -> [React Icon](https://react-icons.github.io/react-icons/)
-- AOS Package -> [AOS Package](https://www.npmjs.com/package/aos)
 
 ## React Router Dom v6.4
 
