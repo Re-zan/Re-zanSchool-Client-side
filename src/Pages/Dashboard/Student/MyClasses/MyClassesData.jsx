@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 import Swal from "sweetalert2";
 
@@ -41,7 +42,10 @@ const MyClassesData = ({ classData, index, refetch }) => {
         >
           Delete
         </button>
-        <button className="btn  btn-info text-white">Pay</button>
+        <Link to="/dashboard/payment">
+          {" "}
+          <button className="btn  btn-info text-white">Pay</button>
+        </Link>
       </td>
     </tr>
   );

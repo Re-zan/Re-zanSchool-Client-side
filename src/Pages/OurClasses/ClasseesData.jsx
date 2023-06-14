@@ -11,6 +11,7 @@ const ClasseesData = ({ dats }) => {
     dats;
   const { user } = useAuth();
   const [isadmin] = useAdmin();
+  console.log(isadmin);
   const [isisInstructor] = useInstruct();
 
   const navigate = useNavigate();
@@ -71,13 +72,22 @@ const ClasseesData = ({ dats }) => {
           Available Seats: {available_seats}{" "}
         </p>
         <div className="card-actions justify-center">
-          <button
-            disabled={available_seats === 0 && (isadmin || isisInstructor)}
-            className="btn bg_gradient_design text-white border-0"
-            onClick={() => handleSelect(_id)}
-          >
-            Select
-          </button>
+          {!user ? (
+            <button
+              className="btn bg_gradient_design text-white border-0"
+              onClick={() => handleSelect(_id)}
+            >
+              Select
+            </button>
+          ) : (
+            <button
+              disabled={isadmin || isisInstructor || available_seats === 0}
+              className="btn bg_gradient_design text-white border-0"
+              onClick={() => handleSelect(_id)}
+            >
+              Select
+            </button>
+          )}
         </div>
       </div>
     </div>

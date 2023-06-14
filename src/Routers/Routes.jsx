@@ -16,11 +16,14 @@ import InstructorClasses from "../Pages/Dashboard/InsTtructors/InstructorClasses
 import AdminPrivateRoute from "./AdminPrivateRoute";
 import InstructorPrivateRoute from "./InstructorPrivateRoute";
 import FeedbackModal from "../Pages/Dashboard/AdminDash/ManageClasses/FeedbackModal";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
+import Payment from "../Pages/Dashboard/Student/Payment/Payment";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -104,6 +107,10 @@ const router = createBrowserRouter([
       {
         path: "my_enrolledment_classes",
         element: <MyEnrolledClasses></MyEnrolledClasses>,
+      },
+      {
+        path: "payment",
+        element: <Payment></Payment>,
       },
     ],
   },
