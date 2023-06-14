@@ -9,8 +9,8 @@ const ManageUser = () => {
       <h2 className=" font-semibold text-3xl">Total Users: {user?.length}</h2>
 
       <div className="overflow-x-auto m-8">
-        <table className="table table-xs ">
-          <thead className="text-center text-base font-semibold">
+        <table className="table table-xs bg-white ">
+          <thead className="text-center text-black font-semibold">
             <tr>
               <th>Serial No</th>
               <th>Name</th>
@@ -21,7 +21,7 @@ const ManageUser = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody className="text-center text-base font-semibold">
+          <tbody className="text-center text-black font-semibold">
             {user?.map((datas, index) => (
               <UserData
                 key={datas._id}

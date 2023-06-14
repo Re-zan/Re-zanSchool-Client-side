@@ -15,6 +15,7 @@ import AddClass from "../Pages/Dashboard/InsTtructors/AddClass/AddClass";
 import InstructorClasses from "../Pages/Dashboard/InsTtructors/InstructorClasses/InstructorClasses";
 import AdminPrivateRoute from "./AdminPrivateRoute";
 import InstructorPrivateRoute from "./InstructorPrivateRoute";
+import FeedbackModal from "../Pages/Dashboard/AdminDash/ManageClasses/FeedbackModal";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "manage_classes/:id",
+        element: <FeedbackModal></FeedbackModal>,
+        loader: ({ params }) =>
+          fetch(
+            `https://re-school-camp-server.vercel.app/classes/${params.id}`
+          ),
+      },
+      {
         path: "manage_user",
         element: (
           <AdminPrivateRoute>
@@ -86,6 +95,7 @@ const router = createBrowserRouter([
           </InstructorPrivateRoute>
         ),
       },
+
       //student routes
       {
         path: "my_selected_classes",

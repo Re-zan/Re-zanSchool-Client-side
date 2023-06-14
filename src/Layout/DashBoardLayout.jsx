@@ -11,6 +11,7 @@ import {
   FaUserGraduate,
   FaUsers,
 } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const DashBoardLayout = () => {
   const { user, logOut } = useAuth();
@@ -111,6 +112,9 @@ const DashBoardLayout = () => {
   return (
     <div className="">
       {/* header start  */}
+      <Helmet>
+        <title>Dashboard</title>
+      </Helmet>{" "}
       <header>
         <div className="navbar bg-[#7da6b9] p-6 ">
           <div className="navbar-start">
@@ -149,7 +153,6 @@ const DashBoardLayout = () => {
           </div>
         </div>
       </header>
-
       {/* main content */}
       <main>
         <div className="grid grid-cols-9 min-h-screen">

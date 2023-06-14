@@ -14,7 +14,7 @@ const NewsData = ({ newsData }) => {
         {title}
       </h3>
 
-      <p>{news}</p>
+      <p className="text-back">{news}</p>
 
       <div className="flex items-center my-0 md:my-4">
         <img src={author_img} alt="" className="w-[50px]" />

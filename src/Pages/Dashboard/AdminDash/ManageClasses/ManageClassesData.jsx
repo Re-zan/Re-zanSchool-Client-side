@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import Swal from "sweetalert2";
 
+import { Link } from "react-router-dom";
+
 const ManageClassesData = ({ datas, index, refetch }) => {
   const {
     class_name,
@@ -70,7 +72,7 @@ const ManageClassesData = ({ datas, index, refetch }) => {
       <td>{instructor_name}</td>
       <td>{instructor_email}</td>
       <td>{available_seats}</td>
-      <td>{price}</td>
+      <td>$ {price}</td>
       {status === "pending" && (
         <>
           <td>pending</td>
@@ -103,7 +105,9 @@ const ManageClassesData = ({ datas, index, refetch }) => {
         >
           Deny{" "}
         </button>
-        <button className="btn btn-info">feedback</button>
+        <Link to={`/dashboard/manage_classes/${_id}`}>
+          <button className="btn btn-info">feedback</button>
+        </Link>
       </td>
     </tr>
   );

@@ -11,8 +11,8 @@ const ManageClasses = () => {
       </h2>
 
       <div className="overflow-x-auto m-8">
-        <table className="table table-xs ">
-          <thead className="text-center text-base font-semibold">
+        <table className="table table-xs bg-white ">
+          <thead className="text-center text-black font-semibold">
             <tr>
               <th>Serial No</th>
               <th>Class Name</th>
@@ -25,7 +25,7 @@ const ManageClasses = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody className="text-center text-base font-semibold">
+          <tbody className="text-center text-black font-semibold">
             {allClasses?.map((datas, index) => (
               <ManageClassesData
                 key={datas._id}
