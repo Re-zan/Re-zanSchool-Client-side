@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         element: <FeedbackModal></FeedbackModal>,
         loader: ({ params }) =>
           fetch(
-            `https://re-school-camp-server.vercel.app/classes/${params.id}`
+            `https://re-school-camp-server.vercel.app/getclasses/${params.id}`
           ),
       },
       {
