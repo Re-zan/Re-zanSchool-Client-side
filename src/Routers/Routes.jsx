@@ -7,7 +7,6 @@ import Login from "../Pages/LoginPage/Laogin";
 import Regisert from "../Pages/Register/Regisert";
 import DashBoardLayout from "../Layout/DashBoardLayout";
 import MyClasses from "../Pages/Dashboard/Student/MyClasses/MyClasses";
-import MyEnrolledClasses from "../Pages/Dashboard/Student/MyEnrolledClasses/MyEnrolledClasses";
 import ManageClasses from "../Pages/Dashboard/AdminDash/ManageClasses/ManageClasses";
 import ManageUser from "../Pages/Dashboard/AdminDash/ManageUsers/ManageUser";
 import DashBoard from "../Pages/Dashboard/DashBoard";
@@ -104,12 +103,9 @@ const router = createBrowserRouter([
         path: "my_selected_classes",
         element: <MyClasses></MyClasses>,
       },
+
       {
-        path: "my_enrolledment_classes",
-        element: <MyEnrolledClasses></MyEnrolledClasses>,
-      },
-      {
-        path: "payment",
+        path: "payment/:id",
         element: <Payment></Payment>,
       },
     ],

@@ -5,7 +5,7 @@ const NewsData = ({ newsData }) => {
   const { title, author_name, author_img, news, date } = newsData;
   return (
     <VerticalTimelineElement
-      className="vertical-timeline-element--education"
+      className="vertical-timeline-element--education overflow-x-hidden"
       contentArrowStyle={{ borderRight: "7px solid  #fff" }}
       date={moment(date).format("MMM Do YY")}
       iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}

@@ -15,7 +15,7 @@ const ClasseesData = ({ dats }) => {
   const [isisInstructor] = useInstruct();
 
   const navigate = useNavigate();
-  const handleSelect = (_id) => {
+  const handleSelect = () => {
     if (!user) {
       Swal.fire({
         title: "Please login to select this class",
@@ -44,7 +44,6 @@ const ClasseesData = ({ dats }) => {
         )
         .then((data) => {
           if (data.status === 200) {
-            console.log(data);
             toast("You classe has been added successfully");
           }
         });
@@ -54,7 +53,7 @@ const ClasseesData = ({ dats }) => {
   return (
     <div
       className={`card ${
-        available_seats === 0 ? "bg-red-500" : "bg-white"
+        available_seats === 0 ? "bg-red-400" : "bg-white"
       }  shadow-xl`}
     >
       <ToastContainer></ToastContainer>

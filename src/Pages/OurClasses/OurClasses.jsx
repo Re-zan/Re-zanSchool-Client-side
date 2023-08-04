@@ -4,6 +4,7 @@ import useAllClasses from "../../hooks/useAllClasses";
 import ClasseesData from "./ClasseesData";
 import Heading from "../../components/Heading/Heading";
 import BannerImage from "../../assets/CommonBannerImage/stock-photo-kids-working-on-a-painting.jpeg";
+
 const OurClasses = () => {
   const [allClasses] = useAllClasses();
   const onlyApprovedClasses = allClasses?.filter(

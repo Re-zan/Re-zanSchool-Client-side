@@ -42,7 +42,7 @@ const MyClassesData = ({ classData, index, refetch }) => {
         >
           Delete
         </button>
-        <Link to="/dashboard/payment">
+        <Link to={`/dashboard/payment/${_id}`}>
           {" "}
           <button className="btn  btn-info text-white">Pay</button>
         </Link>

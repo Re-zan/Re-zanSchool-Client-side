@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import { useEffect, useState } from "react";
+import useTheme from "../../hooks/useThemeColor";
 
 const Header = () => {
   const { user, logOut } = useAuth();
@@ -11,36 +11,23 @@ const Header = () => {
   };
 
   //light and dark mode
-  const [them, setThem] = useState(
-    localStorage.getItem("them") ? localStorage.getItem("them") : "light"
-  );
-  const handeDarkANdLightMode = (e) => {
-    if (e.target.checked) {
-      setThem("dark");
-    } else {
-      setThem("light");
-    }
-  };
-  useEffect(() => {
-    localStorage.setItem("them", them);
-    const localThemsMode = localStorage.getItem("them");
-    document.querySelector("html").setAttribute("data-theme", localThemsMode);
-  }, [them]);
+  const { theme, toggleTheme } = useTheme();
+  const navbarTextColor = theme === "dark" ? "text-white" : "text-black";
   //menu start
   const mainMenu = (
     <>
       <NavLink
         to="/"
         className={({ isActive }) =>
-          isActive ? "text-[#c0392b]" : "text-black dark:text-white"
+          isActive ? ` text-[#c0392b]` : navbarTextColor
         }
       >
-        <li className=" mx-3 text-2xl font-medium font-fira ">Home</li>
+        <li className=" mx-3 text-2xl font-medium font-fira">Home</li>
       </NavLink>
       <NavLink
         to="/instructors"
         className={({ isActive }) =>
-          isActive ? "text-[#c0392b]" : "text-black dark:text-white"
+          isActive ? ` text-[#c0392b]` : navbarTextColor
         }
       >
         <li className=" mx-3 text-2xl font-medium font-fira">Instructors</li>
@@ -48,16 +35,17 @@ const Header = () => {
       <NavLink
         to="/our-classes"
         className={({ isActive }) =>
-          isActive ? "text-[#c0392b]" : "text-black dark:text-white"
+          isActive ? ` text-[#c0392b]` : navbarTextColor
         }
       >
-        <li className=" mx-3 text-2xl font-medium font-fira"> Classes</li>
+        <li className=" mx-3 text-2xl font-medium font-fira">Classes</li>
       </NavLink>
     </>
   );
   return (
-    <div className="navbar bg-base-100 py-6  my_container">
-      <div className="navbar-start">
+    <div className="navbar bg-base-100 lg:px-40 py-4">
+      {" "}
+      <div className="navbar-start ">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
@@ -90,8 +78,7 @@ const Header = () => {
           Re-ZanSchool
         </Link>
       </div>
-
-      <div className="navbar-end  flex items-center">
+      <div className="navbar-end  flex items-center ">
         <div className="hidden lg:flex">
           {" "}
           <ul className="menu menu-horizontal px-1 ">{mainMenu}</ul>
@@ -102,7 +89,7 @@ const Header = () => {
             <NavLink
               to="/dashboard"
               className={({ isActive }) =>
-                isActive ? "text-[#c0392b]" : "text-black"
+                isActive ? "text-[#c0392b]" : navbarTextColor
               }
             >
               <li className=" mx-3 text-2xl font-medium font-fira list-none">
@@ -139,7 +126,7 @@ const Header = () => {
           </>
         )}
         <label className="swap swap-rotate">
-          <input type="checkbox" onChange={handeDarkANdLightMode} />
+          <input type="checkbox" onChange={toggleTheme} />
 
           <svg
             className="swap-on fill-current w-10 h-10"

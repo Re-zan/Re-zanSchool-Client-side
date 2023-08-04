@@ -1,15 +1,30 @@
 import { Elements } from "@stripe/react-stripe-js";
+// import CheckoutFrom from "./CheckoutFrom";
+import CheckOutPage from "./CheackOutPage";
 import { loadStripe } from "@stripe/stripe-js";
-import CheckoutFrom from "./CheckoutFrom";
+import { useParams } from "react-router-dom";
+import useMyClasses from "../../../../hooks/useMyClasses";
 
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PAYMENT);
+const ELEMENTS_OPTIONS = {
+  fonts: [
+    {
+      cssSrc: "https://fonts.googleapis.com/css?family=Roboto",
+    },
+  ],
+};
+const stripePromise = loadStripe(`${import.meta.env.VITE_STRIPE_PAYMENT}`);
 const Payment = () => {
+  const [myClasses] = useMyClasses();
+  const { id } = useParams();
+  const paymentClass = myClasses.filter((classe) => classe._id === id);
+  const classData = paymentClass[0];
+  const productPrice = classData?.price;
+
   return (
-    <div className="m-20">
-      <h2 className=" my-5 text-orange-400">Payment System</h2>
-      <Elements stripe={stripePromise}>
-        {" "}
-        <CheckoutFrom></CheckoutFrom>
+    <div className=" w-[200px] lg:w-[500px] mx-auto my-5">
+      <Elements stripe={stripePromise} options={ELEMENTS_OPTIONS}>
+        {/* <CheckoutFrom price={productPrice}></CheckoutFrom> */}
+        <CheckOutPage price={productPrice} classInfo={classData}></CheckOutPage>
       </Elements>
     </div>
   );

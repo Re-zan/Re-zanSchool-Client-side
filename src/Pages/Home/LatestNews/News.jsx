@@ -18,7 +18,7 @@ const News = () => {
         {" "}
       </Heading>
       <div
-        className="h-[2700px] md:h-[1700px]  relative "
+        className="h-[2600px] md:h-[2000px]  lg:h-[1700px]  relative "
         style={{
           backgroundImage: `url(${img1})`,
           backgroundPosition: "center",

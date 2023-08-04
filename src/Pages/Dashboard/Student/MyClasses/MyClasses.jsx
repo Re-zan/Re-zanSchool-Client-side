@@ -3,7 +3,6 @@ import MyClassesData from "./MyClassesData";
 
 const MyClasses = () => {
   const [myClasses, refetch] = useMyClasses();
-  console.log(myClasses);
 
   return (
     <div>

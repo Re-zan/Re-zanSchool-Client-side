@@ -7,12 +7,7 @@ const FeedbackModal = () => {
   const { _id } = datas;
 
   //usefrom
-  const {
-    register,
-
-    handleSubmit,
-    reset,
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   //register start
   const onSubmit = (data) => {

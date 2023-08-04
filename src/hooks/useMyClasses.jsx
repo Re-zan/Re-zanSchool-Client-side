@@ -10,7 +10,7 @@ const useMyClasses = () => {
       const res = await axios.get(
         `https://re-school-camp-server.vercel.app/my_classes/${user?.email}`
       );
-      console.log(res.data);
+
       return res.data;
     },
   });

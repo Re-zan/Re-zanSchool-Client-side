@@ -145,12 +145,12 @@ const Regisert = () => {
           <div className="form-control w-full my-4">
             <div className=" flex items-center justify-evenly bg-red-700 w-[300px] md:w-[600px] lg:w-[800px] mx-auto">
               <input
-                type="number"
+                type="tel"
                 placeholder="Enter Your phone number"
                 className="input rounded-none w-full "
                 {...register("number", {
                   required: true,
-                  maxLength: 11,
+
                   pattern:
                     /^\+?\d{1,3}[-.\s]?\(?\d{1,3}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
                 })}
@@ -162,11 +162,7 @@ const Regisert = () => {
                 This feild cann't be empty
               </p>
             )}
-            {errors.number?.type === "maxLength" && (
-              <p className=" text-red-800 text-center py-3">
-                Phone Number must be in 11 characters
-              </p>
-            )}
+
             {errors.number?.type === "pattern" && (
               <p className=" text-red-800 text-center py-3">
                 Phone Number must be validated

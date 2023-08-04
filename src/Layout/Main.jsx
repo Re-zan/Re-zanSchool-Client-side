@@ -7,7 +7,9 @@ const Main = () => {
     <div>
       <ScrollStop></ScrollStop>
       <Header></Header>
+
       <Outlet></Outlet>
+
       <Footer></Footer>
     </div>
   );

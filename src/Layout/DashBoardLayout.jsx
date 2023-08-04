@@ -5,7 +5,6 @@ import useInstruct from "../hooks/useInstruct";
 
 import {
   FaAd,
-  FaAddressCard,
   FaUserCheck,
   FaUserEdit,
   FaUserGraduate,
@@ -17,7 +16,7 @@ const DashBoardLayout = () => {
   const { user, logOut } = useAuth();
   const [isadmin] = useAdmin();
   const [isisInstructor] = useInstruct();
-  console.log(isadmin);
+  // console.log(isadmin);
 
   //logut
   const navigate = useNavigate();
@@ -91,17 +90,6 @@ const DashBoardLayout = () => {
             >
               <li className=" my-4 text-sm md:text-2xl font-semibold flex justify-center items-center">
                 <FaUserCheck className="mx-3"></FaUserCheck> My Selected Classes
-              </li>
-            </NavLink>
-            <NavLink
-              to="/dashboard/my_enrolledment_classes"
-              className={({ isActive }) =>
-                isActive ? "text-[#a72112]" : "text-white"
-              }
-            >
-              <li className=" my-4 text-sm md:text-2xl font-semibold flex justify-center items-center">
-                <FaAddressCard className="mx-3"></FaAddressCard> My Enrolled
-                Classes
               </li>
             </NavLink>
           </>
