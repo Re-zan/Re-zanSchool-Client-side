@@ -76,7 +76,7 @@ const UserData = ({ userData, index, refetch }) => {
           disabled={disabledadmin}
           className={`btn ${
             role === "admin" ? "bg-gray-400" : "bg_gradient_design border-0"
-          }   text-white mx-4`}
+          }   text-white w-44 mx-4`}
           onClick={() => handleadmin(_id)}
         >
           {role == "admin" ? " Admin" : "Make admin"}
@@ -87,7 +87,7 @@ const UserData = ({ userData, index, refetch }) => {
             role === "instructor"
               ? "bg-gray-400"
               : "bg_gradient_design border-0"
-          }   text-white mx-4`}
+          }   text-white w-44 mx-4`}
           onClick={() => handleinstructor(_id)}
         >
           {role == "instructor" ? " Instructor" : " Make Instructor"}

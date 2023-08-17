@@ -93,20 +93,22 @@ const ManageClassesData = ({ datas, index, refetch }) => {
         {" "}
         <button
           disabled={approvedStatus}
-          className="btn btn-success"
+          className="btn btn-success w-[68px] text-[10px] font-semibold   "
           onClick={() => handleApproved(_id)}
         >
           Approve
         </button>
         <button
           disabled={approvedStatus}
-          className="btn btn-error m-2"
+          className="btn btn-error m-2 w-[68px] text-[10px] font-semibold  "
           onClick={() => handleDined(_id)}
         >
           Deny{" "}
         </button>
         <Link to={`/dashboard/manage_classes/${_id}`}>
-          <button className="btn btn-info">feedback</button>
+          <button className="btn btn-info w-[68px] text-[10px] font-semibold ">
+            feedback
+          </button>
         </Link>
       </td>
     </tr>

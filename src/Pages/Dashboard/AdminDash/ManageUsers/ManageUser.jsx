@@ -10,7 +10,7 @@ const ManageUser = () => {
 
       <div className="overflow-x-auto m-8">
         <table className="table table-xs bg-white ">
-          <thead className="text-center text-black font-semibold">
+          <thead className="text-center text-lg text-black font-semibold">
             <tr>
               <th>Serial No</th>
               <th>Name</th>

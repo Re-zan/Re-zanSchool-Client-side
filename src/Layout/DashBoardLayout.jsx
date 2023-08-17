@@ -111,8 +111,6 @@ const DashBoardLayout = () => {
               className="text-2xl md:text-4xl  font-bold text-design font-fira"
             >
               {" "}
-              Re-ZanSchool
-              <br></br>
               Dashboard
             </Link>
           </div>
